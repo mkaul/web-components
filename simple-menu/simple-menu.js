@@ -7,7 +7,7 @@
  * simple menu using slots
  *
  * @usage via HTML Custom Element <simple-menu>
- * <script type="module" src="menu1.js"></script>
+ * <script type="module" src="simple-menu.js"></script>
  *
  * <simple-menu>
  *

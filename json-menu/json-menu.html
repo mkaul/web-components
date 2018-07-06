@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Manfred Kaul <manfred.kaul@h-brs.de> 2018">
+<meta name="license" content="The MIT License (MIT)">
+
+<script type="module" src="json-menu.js"></script>
+
+<json-menu menu='{"Menu item A":"Content of Menu item A.", "Menu item B": "Content of Menu item B.", "Menu item C": "Content of Menu item C."}'></json-menu>
+
+<script>
+
+  /* Menu is dynamically extensible at runtime after build */
+
+  const json_menu = document.querySelector('json-menu');
+
+  const menu = JSON.parse( json_menu.getAttribute('menu') );
+  menu.new_menu4 = 'Content 4';
+  json_menu.setAttribute('menu', JSON.stringify(menu));
+
+  /* Menu and contents are dynamically editable after build */
+
+  menu.new_menu4 = 'new Content 4.1';
+  json_menu.setAttribute('menu', JSON.stringify(menu));
+
+</script>
