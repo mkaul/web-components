@@ -4,7 +4,7 @@
 <meta name="author" content="Manfred Kaul <manfred.kaul@h-brs.de> 2018">
 <meta name="license" content="The MIT License (MIT)">
 
-<script type="module" src="menu1.js"></script>
+<script type="module" src="simple-menu.js"></script>
 
 <simple-menu>
 
@@ -17,3 +17,21 @@
     <section slot="content">Content of Menu item C.</section>
 
 </simple-menu>
+
+<script>
+
+    /* Menu is dynamically extensible at runtime after build */
+
+    const menu = document.querySelector('simple-menu');
+
+    const new_button = document.createElement('button');
+    new_button.slot = 'item';
+    new_button.innerText = 'Menu item D';
+    menu.appendChild(new_button);
+
+    const new_content = document.createElement('section');
+    new_content.slot = 'content';
+    new_content.innerText = 'Content of Menu item D';
+    menu.appendChild(new_content);
+
+</script>
