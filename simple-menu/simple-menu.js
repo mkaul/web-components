@@ -1,20 +1,27 @@
-// simple menu using slots
-//
-// usage via HTML Custom Element <simple-menu>
-// <script type="module" src="menu1.js"></script>
-//
-// <simple-menu>
-//
-//     <button slot="item">Menu item A</button>
-//     <button slot="item">Menu item B</button>
-//     <button slot="item">Menu item C</button>
-//
-//     <section slot="content">Content of Menu item A.</section>
-//     <section slot="content">Content of Menu item B.</section>
-//     <section slot="content">Content of Menu item C.</section>
-//
-// </simple-menu>
-//
+/**
+ * @overview simple menu
+ * @author Manfred Kaul <manfred.kaul@h-brs.de> 2018
+ * @license The MIT License (MIT)
+ * @version latest (0.0.1)
+ *
+ * simple menu using slots
+ *
+ * @usage via HTML Custom Element <simple-menu>
+ * <script type="module" src="menu1.js"></script>
+ *
+ * <simple-menu>
+ *
+ *     <button slot="item">Menu item A</button>
+ *     <button slot="item">Menu item B</button>
+ *     <button slot="item">Menu item C</button>
+ *
+ *     <section slot="content">Content of Menu item A.</section>
+ *     <section slot="content">Content of Menu item B.</section>
+ *     <section slot="content">Content of Menu item C.</section>
+ *
+ * </simple-menu>
+ *
+ **/
 customElements.define( 'simple-menu', class extends HTMLElement {
   constructor () {
     super();
@@ -39,11 +46,15 @@ customElements.define( 'simple-menu', class extends HTMLElement {
 
     this.hideContent();
   }
-  hideContent(e) {
+  /**
+   * hide all contents except the one that has been clicked
+   * @param {Event} event - click
+   */
+  hideContent(event) {
     this.contents.forEach( content => content.style.display = 'none' );
-    if(e){
+    if(event){
       // get index of clicked menu item
-      const index = this.items.indexOf(e.currentTarget);
+      const index = this.items.indexOf(event.currentTarget);
       // display content with selected index
       this.contents[ index ].style.display = 'block';
     }
