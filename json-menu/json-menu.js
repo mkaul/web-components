@@ -13,7 +13,7 @@
  *
  **/
 customElements.define( 'json-menu', class extends HTMLElement {
-  static get observedAttributes(){ return ['menu'] }
+  // static get observedAttributes(){ console.log( "This is never called;" );  return ['menu'] }
   constructor () {
     super();
     this.shadow = this.attachShadow( { mode: 'open' } );
