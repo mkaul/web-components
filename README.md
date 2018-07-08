@@ -2,8 +2,10 @@
 - **Use the Platform**: using Browser technology only, not frameworks
     - only by using the W3C standards
     - using as little frameworks as possible
-- Components use the [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) standard, frequently in combination with the [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) and [ES6 Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)  
-- No use of [HTML template](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) in favor of [lit-html](https://github.com/Polymer/lit-html), if necessary  
+- Components use the [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) standard, frequently in combination with the [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) and [ES6 Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) 
+- All Web Components fit into a single self-contained JavaScript file
+- Each Web Component is includable into any HTML page by a single &lt;script> line for importing the corresponding JavaScript file   
+- Less use of [HTML template](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) in favor of ES6 Backtick strings or even the 2kB framework [lit-html](https://github.com/Polymer/lit-html), if necessary at all 
 
 ## Examples without any JavaScript framework
 - simple-menu: Use as entry point
