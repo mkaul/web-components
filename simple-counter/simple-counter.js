@@ -10,19 +10,12 @@
 customElements.define( 'simple-counter', class extends HTMLElement {
   constructor () {
     super();
-    this.counter = 1;
+    let counter = 1;
     this.shadow = this.attachShadow( { mode: 'open' } );
-    this.shadow.innerHTML = '🎈'.repeat(this.counter);
-  }
-  connectedCallback() {
-    this.addEventListener( 'click', this.increment.bind(this) );
-  }
-  /**
-   * increment counter by one
-   * @param {Event} event - click
-   */
-  increment(event) {
-    this.counter += 1;
-    this.shadow.innerHTML = '🎈'.repeat(this.counter);
+    this.shadow.innerHTML = '🎈'.repeat(counter);
+    this.addEventListener( 'click', () => {
+      counter += 1;
+      this.shadow.innerHTML = '🎈'.repeat(counter);
+    } );
   }
 } );
