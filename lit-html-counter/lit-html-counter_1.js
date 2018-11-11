@@ -10,27 +10,19 @@ import { html, render } from "https://unpkg.com/lit-html?module";
 class LitCounter extends HTMLElement {
   constructor(){
     super();
-    this.counterValue = 0;
+    this.counterValue = parseInt(this.getAttribute('start')) || 0;
     this.root = this.attachShadow({mode:"open"} );
-    setInterval( _ => this.increaseCounter(),1000 );
+    setInterval( () => this.increaseCounter(),1000 );
   }
 
   increaseCounter(){
-    ++this.counter;
-  }
-
-  get counter(){
-    return this.counterValue;
-  }
-
-  set counter( val ){
-    this.counterValue = val;
+    this.counterValue += 1;
     render( this.template(), this.root );
   }
 
   template(){
     return html`
-      <h1>${this.message}: ${this.counter}</h1>
+      <h1>${this.message}: ${this.counterValue}</h1>
     `;
   }
 
